@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dil Se Open Mic | Your Voice. Your Story. Your Stage.</title>
+    <meta name="description" content="Dil Se Open Mic is a creative platform for ages 10–25 to showcase talent through singing, acting, poetry, mimicry, comedy, instrumental performances, bands and more.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Syne for bold headlines -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0C10',
+                        brandSurface: '#12141C',
+                        brandCard: '#1A1D28',
+                        purpleGlow: '#8A2BE2',
+                        pinkNeon: '#FF1493',
+                        orangeWarm: '#FF4500',
+                        electricBlue: '#00F0FF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Glowing & Ambient FX */
+        body {
+            background-color: #0B0C10;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #FF1493, #8A2BE2, #00F0FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-orange {
+            background: linear-gradient(135deg, #FF4500, #FF1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(26, 29, 40, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 20, 147, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(138, 43, 226, 0.3);
+        }
+
+        .glow-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .glow-btn:hover {
+            box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Soundwave Animation Visual Elements */
+        .soundwave-bar {
+            animation: soundwave 1.2s ease-in-out infinite alternate;
+        }
+        @keyframes soundwave {
+            0% { height: 10px; }
+            100% { height: 45px; }
+        }
+
+        /* Kinetic Typography Glow Effects */
+        .kinetic-word {
+            transition: all 0.4s ease;
+        }
+        .kinetic-word:hover {
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Ambient Spotlights */
+        .spotlight-1 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(138,43,226,0.35) 0%, rgba(0,0,0,0) 70%);
+            top: -50px;
+            left: -50px;
+            pointer-events: none;
+        }
+
+        .spotlight-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,20,147,0.25) 0%, rgba(0,0,0,0) 70%);
+            bottom: 10%;
+            right: -100px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-pinkNeon selection:text-white">
+
+    <!-- Centralized Website Data Object -->
+    <script>
+        const EVENT_CONFIG = {
+            eventName: "Dil Se Open Mic",
+            organizer: "Suhani Rajannavar",
+            tagline: "Your Voice. Your Story. Your Stage.",
+            date: "15 December 2026",
+            time: "5:30 PM onwards",
+            venue: "KLE CBALC",
+            ageGroup: "10–25 Years",
+            contactEmail: "To Be Announced",
+            contactPhone: "To Be Announced",
+            instagram: "Coming Soon"
+        };
+    </script>
+
+    <!-- STICKY NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-card bg-brandDark/90 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex flex-col">
+                <span class="font-display text-xl sm:text-2xl font-extrabold tracking-wider text-white">
+                    DIL SE <span class="text-gradient">OPEN MIC</span>
+                </span>
+                <span class="text-xs text-gray-400 font-medium">by Suhani Rajannavar</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#about" class="hover:text-pinkNeon transition-colors">About</a>
+                <a href="#details" class="hover:text-pinkNeon transition-colors">Details</a>
+                <a href="#categories" class="hover:text-pinkNeon transition-colors">Categories</a>
+                <a href="#how-it-works" class="hover:text-pinkNeon transition-colors">How It Works</a>
+                <a href="#schedule" class="hover:text-pinkNeon transition-colors">Schedule</a>
+                <a href="#rules" class="hover:text-pinkNeon transition-colors">Rules</a>
+                <a href="#contact" class="hover:text-pinkNeon transition-colors">Contact</a>
+            </nav>
+
+            <!-- Register CTA & Mobile Hamburger -->
+            <div class="flex items-center space-x-4">
+                <a href="#register" class="glow-btn bg-gradient-to-r from-pinkNeon to-purpleGlow text-white px-5 py-2.5 rounded-full text-sm font-bold tracking-wide shadow-lg hidden sm:inline-block">
+                    REGISTER NOW
+                </a>
+                
+                <button id="menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden text-2xl text-white focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandDark/95 border-b border-white/10 px-6 py-6 space-y-4">
+            <a href="#about" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">About</a>
+            <a href="#details" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">Details</a>
+            <a href="#categories" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">Categories</a>
+            <a href="#how-it-works" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">How It Works</a>
+            <a href="#schedule" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">Schedule</a>
+            <a href="#performers" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">Performers</a>
+            <a href="#rules" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">Rules</a>
+            <a href="#contact" class="mobile-nav-link block text-lg font-medium hover:text-pinkNeon">Contact</a>
+            <a href="#register" class="mobile-nav-link block text-center bg-gradient-to-r from-pinkNeon to-purpleGlow py-3 rounded-xl font-bold text-white">
+                REGISTER NOW
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
+        <div class="spotlight-1"></div>
+        <div class="spotlight-2"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+            <!-- Animated Soundwaves Graphic -->
+            <div class="flex items-center justify-center space-x-1 mb-2 opacity-80 h-12">
+                <div class="w-1.5 bg-pinkNeon rounded-full soundwave-bar" style="animation-delay: 0.1s;"></div>
+                <div class="w-1.5 bg-purpleGlow rounded-full soundwave-bar" style="animation-delay: 0.3s;"></div>
+                <div class="w-1.5 bg-electricBlue rounded-full soundwave-bar" style="animation-delay: 0.2s;"></div>
+                <div class="w-1.5 bg-pinkNeon rounded-full soundwave-bar" style="animation-delay: 0.4s;"></div>
+                <div class="w-1.5 bg-orangeWarm rounded-full soundwave-bar" style="animation-delay: 0.15s;"></div>
+                <div class="w-1.5 bg-purpleGlow rounded-full soundwave-bar" style="animation-delay: 0.35s;"></div>
+            </div>
+
+            <div class="inline-block px-4 py-1.5 rounded-full glass-card text-xs sm:text-sm font-semibold tracking-wider text-pinkNeon border border-pinkNeon/30 mb-2">
+                OFFICIAL OPEN MIC EVENT • AGE GROUP 10–25
+            </div>
+
+            <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-none">
+                DIL SE <br><span class="text-gradient">OPEN MIC</span>
+            </h1>
+
+            <p class="text-lg sm:text-2xl text-gray-300 font-medium max-w-2xl mx-auto italic">
+                by Suhani Rajannavar
+            </p>
+
+            <p class="font-display text-xl sm:text-3xl font-extrabold tracking-wide text-white uppercase">
+                "Your Voice. Your Story. Your Stage."
+            </p>
+
+            <!-- Quick Information Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto pt-4">
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Date</p>
+                    <p class="text-base sm:text-lg font-bold text-white mt-1">15 DEC 2026</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Time</p>
+                    <p class="text-base sm:text-lg font-bold text-white mt-1">5:30 PM Onwards</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Venue</p>
+                    <p class="text-base sm:text-lg font-bold text-white mt-1">KLE CBALC</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Eligibility</p>
+                    <p class="text-base sm:text-lg font-bold text-white mt-1">Ages 10–25</p>
+                </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+                <a href="#register" class="w-full sm:w-auto glow-btn bg-gradient-to-r from-pinkNeon via-purpleGlow to-electricBlue text-white font-bold text-lg px-8 py-4 rounded-full shadow-xl transition-all">
+                    <i class="fa-solid fa-microphone-lines mr-2"></i> REGISTER NOW
+                </a>
+                <a href="#about" class="w-full sm:w-auto glass-card hover:bg-white/10 text-white font-semibold text-lg px-8 py-4 rounded-full transition-all">
+                    EXPLORE THE EVENT
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT THE EVENT SECTION -->
+    <section id="about" class="py-20 px-4 relative bg-brandSurface/60 border-y border-white/5">
+        <div class="max-w-5xl mx-auto text-center space-y-8">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">About The Platform</h2>
+            <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                No judgment. No limits. <br><span class="text-gradient">Just you and your art.</span>
+            </h3>
+            
+            <p class="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
+                <strong class="text-white">Dil Se Open Mic</strong> is designed specifically to provide young people with a vibrant, judgment-free platform where they can express themselves, showcase their hidden talents, build stage confidence, and connect with a passionate creative community.
+            </p>
+
+            <!-- Glowing Kinetic Typography Word Cloud -->
+            <div class="pt-8 flex flex-wrap justify-center gap-4 sm:gap-8 font-display font-black text-2xl sm:text-4xl text-gray-500">
+                <span class="kinetic-word hover:text-pinkNeon cursor-pointer">VOICE</span>
+                <span class="text-pinkNeon">•</span>
+                <span class="kinetic-word hover:text-purpleGlow cursor-pointer">STORY</span>
+                <span class="text-purpleGlow">•</span>
+                <span class="kinetic-word hover:text-electricBlue cursor-pointer">TALENT</span>
+                <span class="text-electricBlue">•</span>
+                <span class="kinetic-word hover:text-orangeWarm cursor-pointer">EXPRESSION</span>
+                <span class="text-orangeWarm">•</span>
+                <span class="kinetic-word hover:text-pinkNeon cursor-pointer">CONFIDENCE</span>
+                <span class="text-pinkNeon">•</span>
+                <span class="kinetic-word hover:text-electricBlue cursor-pointer">CREATIVITY</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EVENT DETAILS SECTION -->
+    <section id="details" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Event Snapshot</h2>
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">ESSENTIAL DETAILS</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-pinkNeon/20 flex items-center justify-center text-pinkNeon text-2xl mb-4">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <h4 class="text-xs text-gray-400 font-semibold uppercase">DATE</h4>
+                <p class="text-lg font-bold text-white mt-1">15 December 2026</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-purpleGlow/20 flex items-center justify-center text-purpleGlow text-2xl mb-4">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h4 class="text-xs text-gray-400 font-semibold uppercase">TIME</h4>
+                <p class="text-lg font-bold text-white mt-1">5:30 PM Onwards</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-electricBlue/20 flex items-center justify-center text-electricBlue text-2xl mb-4">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h4 class="text-xs text-gray-400 font-semibold uppercase">VENUE</h4>
+                <p class="text-lg font-bold text-white mt-1">KLE CBALC</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-orangeWarm/20 flex items-center justify-center text-orangeWarm text-2xl mb-4">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h4 class="text-xs text-gray-400 font-semibold uppercase">AGE GROUP</h4>
+                <p class="text-lg font-bold text-white mt-1">10–25 Years</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center md:col-span-3 lg:col-span-1">
+                <div class="w-14 h-14 rounded-full bg-pinkNeon/20 flex items-center justify-center text-pinkNeon text-2xl mb-4">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <h4 class="text-xs text-gray-400 font-semibold uppercase">ORGANIZER</h4>
+                <p class="text-lg font-bold text-white mt-1">Suhani Rajannavar</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHO CAN PARTICIPATE? -->
+    <section class="py-16 px-4 bg-brandSurface/40">
+        <div class="max-w-5xl mx-auto text-center space-y-8">
+            <div>
+                <h2 class="text-xs font-bold text-electricBlue tracking-widest uppercase">Eligibility</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">WHO CAN TAKE THE STAGE?</h3>
+                <p class="text-gray-400 mt-2">Exclusively curated for youth aged <span class="text-pinkNeon font-bold">10 to 25 Years</span>.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-3xl border-t-4 border-pinkNeon">
+                    <span class="text-4xl font-black text-pinkNeon font-display">10–15</span>
+                    <p class="text-sm text-gray-400 mt-1 uppercase font-semibold">Years Old</p>
+                    <h4 class="text-xl font-bold text-white mt-4">Junior Creators</h4>
+                    <p class="text-gray-400 text-sm mt-2">Unleash your early passion and take your first step onto a live stage.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-t-4 border-purpleGlow">
+                    <span class="text-4xl font-black text-purpleGlow font-display">16–18</span>
+                    <p class="text-sm text-gray-400 mt-1 uppercase font-semibold">Years Old</p>
+                    <h4 class="text-xl font-bold text-white mt-4">Youth Performers</h4>
+                    <p class="text-gray-400 text-sm mt-2">Express your unique thoughts and build real performance confidence.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-t-4 border-electricBlue">
+                    <span class="text-4xl font-black text-electricBlue font-display">19–25</span>
+                    <p class="text-sm text-gray-400 mt-1 uppercase font-semibold">Years Old</p>
+                    <h4 class="text-xl font-bold text-white mt-4">Young Adults & Emerging Artists</h4>
+                    <p class="text-gray-400 text-sm mt-2">Showcase your refined skills, tell your story, and inspire the crowd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PERFORMANCE CATEGORIES -->
+    <section id="categories" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Performance Categories</h2>
+            <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2">YOUR TALENT. YOUR CATEGORY.</h3>
+            <p class="text-gray-400 mt-2 max-w-xl mx-auto">Choose your medium of expression and own the stage.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- 1. Mimicry -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-pinkNeon/20 text-pinkNeon flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-[#00F0FF] fa-masks-theater"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Mimicry</h4>
+                <p class="text-gray-400 text-sm mt-2">Bring impressions, characters and iconic voices to life with your unique flair.</p>
+            </div>
+
+            <!-- 2. Acting -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-purpleGlow/20 text-purpleGlow flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-clapperboard"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Acting</h4>
+                <p class="text-gray-400 text-sm mt-2">Show your storytelling, dramatic depth, and expressive performance skills live.</p>
+            </div>
+
+            <!-- 3. Poetry -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-electricBlue/20 text-electricBlue flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Poetry</h4>
+                <p class="text-gray-400 text-sm mt-2">Turn your innermost thoughts, rhymes, and raw emotions into captivating spoken words.</p>
+            </div>
+
+            <!-- 4. Singing -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-orangeWarm/20 text-orangeWarm flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-microphone-stand"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Singing</h4>
+                <p class="text-gray-400 text-sm mt-2">Own the spotlight with your vocal range, soul, melodies, and songs.</p>
+            </div>
+
+            <!-- 5. Comedy / Stand-Up -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-pinkNeon/20 text-pinkNeon flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-face-laugh-squint"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Comedy / Stand-Up</h4>
+                <p class="text-gray-400 text-sm mt-2">Make the audience laugh out loud with your unique humor and observation.</p>
+            </div>
+
+            <!-- 6. Instrumental -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-purpleGlow/20 text-purpleGlow flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-guitar"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Instrumental</h4>
+                <p class="text-gray-400 text-sm mt-2">Let your guitar, keys, flutes, or drums speak directly to the audience.</p>
+            </div>
+
+            <!-- 7. Band -->
+            <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                <div class="w-12 h-12 rounded-xl bg-electricBlue/20 text-electricBlue flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-drum"></i>
+                </div>
+                <h4 class="text-xl font-bold text-white">Band</h4>
+                <p class="text-gray-400 text-sm mt-2">Bring your crew, high energy, and collective sound to rock the stage together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHY DIL SE? -->
+    <section class="py-20 px-4 bg-brandSurface/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">The Experience</h2>
+                <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2">WHY DIL SE?</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="font-display text-2xl font-black text-pinkNeon">EXPRESS</h4>
+                    <p class="text-gray-300 text-sm mt-2">Say what ordinary words cannot.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="font-display text-2xl font-black text-purpleGlow">PERFORM</h4>
+                    <p class="text-gray-300 text-sm mt-2">Step onto the stage and own it.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="font-display text-2xl font-black text-electricBlue">CREATE</h4>
+                    <p class="text-gray-300 text-sm mt-2">Bring your original ideas to life.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="font-display text-2xl font-black text-orangeWarm">CONNECT</h4>
+                    <p class="text-gray-300 text-sm mt-2">Meet other young passionate creators.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <h4 class="font-display text-2xl font-black text-pinkNeon">REMEMBER</h4>
+                    <p class="text-gray-300 text-sm mt-2">Create an unforgettable memory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. HOW IT WORKS TIMELINE -->
+    <section id="how-it-works" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Simple Steps</h2>
+            <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2">HOW IT WORKS</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            <div class="glass-card p-6 rounded-2xl relative border-l-4 border-pinkNeon md:border-l-0 md:border-t-4">
+                <span class="text-xs font-bold text-pinkNeon tracking-widest">STEP 01</span>
+                <h4 class="text-xl font-bold text-white mt-2">REGISTER</h4>
+                <p class="text-gray-400 text-sm mt-2">Choose your category and submit your performance details online.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl relative border-l-4 border-purpleGlow md:border-l-0 md:border-t-4">
+                <span class="text-xs font-bold text-purpleGlow tracking-widest">STEP 02</span>
+                <h4 class="text-xl font-bold text-white mt-2">GET CONFIRMED</h4>
+                <p class="text-gray-400 text-sm mt-2">Receive official confirmation and performance slot details from organizers.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl relative border-l-4 border-electricBlue md:border-l-0 md:border-t-4">
+                <span class="text-xs font-bold text-electricBlue tracking-widest">STEP 03</span>
+                <h4 class="text-xl font-bold text-white mt-2">PREPARE</h4>
+                <p class="text-gray-400 text-sm mt-2">Rehearse your act and get ready to shine on stage.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl relative border-l-4 border-orangeWarm md:border-l-0 md:border-t-4">
+                <span class="text-xs font-bold text-orangeWarm tracking-widest">STEP 04</span>
+                <h4 class="text-xl font-bold text-white mt-2">TAKE THE STAGE</h4>
+                <p class="text-gray-400 text-sm mt-2">Arrive at KLE CBALC and perform it Dil Se!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. EVENT SCHEDULE SECTION -->
+    <section id="schedule" class="py-20 px-4 bg-brandSurface/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Timeline</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">EVENT SCHEDULE</h3>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Confirmed Entry -->
+                <div class="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-pinkNeon">
+                    <div>
+                        <span class="text-xs text-pinkNeon font-bold uppercase tracking-wider">Opening</span>
+                        <h4 class="text-xl font-bold text-white mt-1">EVENT BEGINS</h4>
+                    </div>
+                    <span class="text-lg font-extrabold text-white bg-pinkNeon/20 px-4 py-2 rounded-xl">5:30 PM</span>
+                </div>
+
+                <!-- Unconfirmed Slot Placeholder -->
+                <div class="glass-card p-6 rounded-2xl flex items-center justify-between border-l-4 border-gray-600 opacity-75">
+                    <div>
+                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Lineup</span>
+                        <h4 class="text-lg font-semibold text-gray-300 mt-1">Detailed Performance Schedule</h4>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-400 bg-white/5 px-4 py-2 rounded-xl">To Be Announced</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FEATURED PERFORMERS / GUESTS -->
+    <section id="performers" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Spotlight</h2>
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">FEATURED PERFORMERS & GUESTS</h3>
+            <p class="text-gray-400 mt-2">FEATURED PERFORMERS — <span class="text-electricBlue font-bold">COMING SOON</span></p>
+        </div>
+
+        <!-- Reusable Placeholder Profile Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center text-4xl text-gray-500 mb-4 border border-white/10">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Artist Spotlight</h4>
+                <p class="text-xs text-pinkNeon mt-1 font-semibold">To Be Announced</p>
+                <p class="text-gray-400 text-sm mt-3">Special guests, judges, and featured lineup details will be revealed soon.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center text-4xl text-gray-500 mb-4 border border-white/10">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Mentor / Guest</h4>
+                <p class="text-xs text-purpleGlow mt-1 font-semibold">To Be Announced</p>
+                <p class="text-gray-400 text-sm mt-3">Stay tuned as we unveil our featured creative mentors.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
+                <div class="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center text-4xl text-gray-500 mb-4 border border-white/10">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Performer</h4>
+                <p class="text-xs text-electricBlue mt-1 font-semibold">To Be Announced</p>
+                <p class="text-gray-400 text-sm mt-3">Registered artists will be highlighted here prior to event day.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. REGISTRATION FORM SECTION -->
+    <section id="register" class="py-20 px-4 bg-gradient-to-b from-brandDark via-brandSurface to-brandDark">
+        <div class="max-w-3xl mx-auto glass-card p-8 sm:p-12 rounded-3xl border border-pinkNeon/30 relative">
+            <div class="text-center mb-8">
+                <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Join The Stage</h2>
+                <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2">READY TO TAKE THE STAGE?</h3>
+                <p class="text-gray-300 mt-2">Your story deserves a stage. Tell us yours.</p>
+            </div>
+
+            <!-- Validation Error Alert Container -->
+            <div id="form-error-msg" class="hidden mb-6 p-4 rounded-xl bg-red-500/20 border border-red-500/50 text-red-200 text-sm"></div>
+
+            <!-- Dynamic Form -->
+            <form id="registration-form" class="space-y-6" onsubmit="handleRegistration(event)">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Full Name *</label>
+                        <input type="text" id="reg-fullname" required placeholder="Suhani Rajannavar" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Age (10–25 Years) *</label>
+                        <input type="number" id="reg-age" min="10" max="25" required placeholder="18" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Phone Number *</label>
+                        <input type="tel" id="reg-phone" required placeholder="10-digit phone number" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Email Address *</label>
+                        <input type="email" id="reg-email" required placeholder="you@example.com" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">City *</label>
+                        <input type="text" id="reg-city" required placeholder="Your City" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Performance Category *</label>
+                        <select id="reg-category" required class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                            <option value="">Select Category</option>
+                            <option value="Mimicry">Mimicry</option>
+                            <option value="Acting">Acting</option>
+                            <option value="Poetry">Poetry</option>
+                            <option value="Singing">Singing</option>
+                            <option value="Comedy / Stand-Up">Comedy / Stand-Up</option>
+                            <option value="Instrumental">Instrumental</option>
+                            <option value="Band">Band</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Performance Title / Act Name *</label>
+                    <input type="text" id="reg-actname" required placeholder="Name of your piece or performance" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Short Description of Performance *</label>
+                    <textarea id="reg-desc" rows="3" required placeholder="Briefly describe what you will present on stage..." class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Instagram Handle (Optional)</label>
+                        <input type="text" id="reg-insta" placeholder="@yourhandle" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Reference Video Link (Optional)</label>
+                        <input type="url" id="reg-video" placeholder="https://drive.google.com/... or YouTube link" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3.5 text-white focus:outline-none focus:border-pinkNeon">
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-3 pt-2">
+                    <input type="checkbox" id="reg-terms" required class="mt-1 accent-pinkNeon rounded">
+                    <label for="reg-terms" class="text-xs text-gray-300">
+                        I agree to the event rules, guidelines, and confirm that all details provided are accurate.
+                    </label>
+                </div>
+
+                <button type="submit" id="reg-submit-btn" class="w-full glow-btn bg-gradient-to-r from-pinkNeon via-purpleGlow to-electricBlue text-white font-bold text-lg py-4 rounded-xl transition-all">
+                    TAKE THE STAGE
+                </button>
+            </form>
+
+            <!-- Success Confirmation Screen -->
+            <div id="form-success-state" class="hidden text-center py-12 space-y-6">
+                <div class="w-20 h-20 rounded-full bg-green-500/20 text-green-400 text-4xl flex items-center justify-center mx-auto border border-green-500/30">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-display text-4xl font-black text-white">YOU'RE IN! 🎉</h3>
+                <p class="text-gray-300 max-w-md mx-auto text-lg">
+                    Your registration has been successfully received. We'll contact you shortly with the next steps and rehearsal schedule.
+                </p>
+                <button onclick="resetRegForm()" class="glass-card hover:bg-white/10 px-6 py-2.5 rounded-full text-sm font-semibold text-white">
+                    Submit Another Entry
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. RULES & GUIDELINES ACCORDION -->
+    <section id="rules" class="py-20 px-4 max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Guidelines</h2>
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">RULES & GUIDELINES</h3>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Rule Item 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full p-6 text-left font-bold text-white flex justify-between items-center focus:outline-none accordion-header">
+                    <span>1. Age Eligibility Standard</span>
+                    <i class="fa-solid fa-chevron-down text-pinkNeon transition-transform"></i>
+                </button>
+                <div class="px-6 pb-6 text-gray-300 text-sm hidden accordion-content">
+                    Participants must be strictly between 10 and 25 years old on the event date (15 December 2026). Valid proof of age may be requested at venue check-in.
+                </div>
+            </div>
+
+            <!-- Rule Item 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full p-6 text-left font-bold text-white flex justify-between items-center focus:outline-none accordion-header">
+                    <span>2. Performance Category Selection</span>
+                    <i class="fa-solid fa-chevron-down text-pinkNeon transition-transform"></i>
+                </button>
+                <div class="px-6 pb-6 text-gray-300 text-sm hidden accordion-content">
+                    Participants must select the appropriate performance category during registration. Any changes to category must be approved by the organizer in advance.
+                </div>
+            </div>
+
+            <!-- Rule Item 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full p-6 text-left font-bold text-white flex justify-between items-center focus:outline-none accordion-header">
+                    <span>3. Respectful & Appropriate Content</span>
+                    <i class="fa-solid fa-chevron-down text-pinkNeon transition-transform"></i>
+                </button>
+                <div class="px-6 pb-6 text-gray-300 text-sm hidden accordion-content">
+                    Performance content must be appropriate for a general community audience. Profanity, hate speech, political defamation, or offensive content will result in disqualification.
+                </div>
+            </div>
+
+            <!-- Rule Item 4 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full p-6 text-left font-bold text-white flex justify-between items-center focus:outline-none accordion-header">
+                    <span>4. Venue Reporting & Timing</span>
+                    <i class="fa-solid fa-chevron-down text-pinkNeon transition-transform"></i>
+                </button>
+                <div class="px-6 pb-6 text-gray-300 text-sm hidden accordion-content">
+                    Participants must report to KLE CBALC at the designated reporting time provided during slot confirmation. Late arrivals may forfeit their slot.
+                </div>
+            </div>
+
+            <!-- Rule Item 5 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full p-6 text-left font-bold text-white flex justify-between items-center focus:outline-none accordion-header">
+                    <span>5. Performance Duration Limits</span>
+                    <i class="fa-solid fa-chevron-down text-pinkNeon transition-transform"></i>
+                </button>
+                <div class="px-6 pb-6 text-gray-300 text-sm hidden accordion-content">
+                    Exact time limits per performance category will be officially communicated by the organizers upon slot confirmation.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. GALLERY SECTION -->
+    <section class="py-20 px-4 bg-brandSurface/40">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Moments</h2>
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">EVENT GALLERY</h3>
+            <p class="text-gray-400 mt-2">GALLERY — <span class="text-electricBlue font-bold">COMING SOON</span></p>
+
+            <div class="flex flex-wrap justify-center gap-3 mt-8 text-sm font-semibold">
+                <span class="px-5 py-2 rounded-full glass-card text-pinkNeon border border-pinkNeon/30">The Stage</span>
+                <span class="px-5 py-2 rounded-full glass-card text-gray-400">The Performers</span>
+                <span class="px-5 py-2 rounded-full glass-card text-gray-400">The Audience</span>
+                <span class="px-5 py-2 rounded-full glass-card text-gray-400">Behind The Scenes</span>
+            </div>
+
+            <!-- Gallery Placeholder Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                <div class="h-48 glass-card rounded-2xl flex items-center justify-center text-gray-600">
+                    <i class="fa-regular fa-image text-3xl"></i>
+                </div>
+                <div class="h-48 glass-card rounded-2xl flex items-center justify-center text-gray-600">
+                    <i class="fa-regular fa-image text-3xl"></i>
+                </div>
+                <div class="h-48 glass-card rounded-2xl flex items-center justify-center text-gray-600">
+                    <i class="fa-regular fa-image text-3xl"></i>
+                </div>
+                <div class="h-48 glass-card rounded-2xl flex items-center justify-center text-gray-600">
+                    <i class="fa-regular fa-image text-3xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. SOCIAL MEDIA SECTION -->
+    <section class="py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Community</h2>
+            <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">FOLLOW THE DIL SE JOURNEY</h3>
+            <p class="text-xl text-gradient font-semibold italic">"Perform. Create. Share. Repeat."</p>
+
+            <div class="flex justify-center items-center space-x-6 pt-4">
+                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl text-pinkNeon hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl text-red-500 hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full glass-card flex items-center justify-center text-2xl text-blue-500 hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. CONTACT SECTION -->
+    <section id="contact" class="py-20 px-4 bg-brandSurface/60">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-6">
+                <h2 class="text-xs font-bold text-pinkNeon tracking-widest uppercase">Reach Out</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white">HAVE A QUESTION?</h3>
+                <p class="text-gray-300">We are here to assist you with registration, venue queries, or event guidance.</p>
+
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-pinkNeon/20 text-pinkNeon flex items-center justify-center">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Organizer</p>
+                            <p class="text-white font-bold">Suhani Rajannavar</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-purpleGlow/20 text-purpleGlow flex items-center justify-center">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Email Address</p>
+                            <p class="text-white font-bold">Coming Soon</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-electricBlue/20 text-electricBlue flex items-center justify-center">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Phone</p>
+                            <p class="text-white font-bold">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="glass-card p-8 rounded-3xl space-y-4" onsubmit="handleContactSubmit(event)">
+                <h4 class="text-xl font-bold text-white mb-2">Send a Message</h4>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Your Name</label>
+                    <input type="text" required placeholder="Name" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-pinkNeon">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Your Email</label>
+                    <input type="email" required placeholder="email@example.com" class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-pinkNeon">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Message</label>
+                    <textarea rows="3" required placeholder="Type your query here..." class="w-full bg-brandDark/80 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-pinkNeon"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-pinkNeon to-purpleGlow text-white font-bold py-3 rounded-xl hover:opacity-90 transition-opacity">
+                    SEND MESSAGE
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 15. FOOTER -->
+    <footer class="bg-brandDark border-t border-white/10 py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-display text-xl font-extrabold text-white">
+                    DIL SE <span class="text-gradient">OPEN MIC</span>
+                </span>
+                <p class="text-xs text-gray-400 mt-1">by Suhani Rajannavar</p>
+                <p class="text-xs text-pinkNeon font-semibold mt-1">"Your Voice. Your Story. Your Stage."</p>
+            </div>
+
+            <!-- Site Navigation Links -->
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-400 font-medium">
+                <a href="#home" class="hover:text-white">Home</a>
+                <a href="#about" class="hover:text-white">About</a>
+                <a href="#categories" class="hover:text-white">Categories</a>
+                <a href="#how-it-works" class="hover:text-white">How It Works</a>
+                <a href="#schedule" class="hover:text-white">Schedule</a>
+                <a href="#register" class="hover:text-white">Register</a>
+                <a href="#rules" class="hover:text-white">Rules</a>
+                <a href="#contact" class="hover:text-white">Contact</a>
+            </div>
+
+            <p class="text-xs text-gray-500 text-center md:text-right">
+                © 2026 Dil Se Open Mic. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Mobile Menu Drawer Toggle Logic
+        const menuToggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuToggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Accordions Logic
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+
+                // Toggle visibility
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // 3. Registration Form Validation & State Logic
+        function handleRegistration(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('reg-fullname').value.trim();
+            const age = parseInt(document.getElementById('reg-age').value);
+            const phone = document.getElementById('reg-phone').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const city = document.getElementById('reg-city').value.trim();
+            const category = document.getElementById('reg-category').value;
+            const actName = document.getElementById('reg-actname').value.trim();
+            const desc = document.getElementById('reg-desc').value.trim();
+            const terms = document.getElementById('reg-terms').checked;
+
+            const errorContainer = document.getElementById('form-error-msg');
+            errorContainer.classList.add('hidden');
+            errorContainer.innerHTML = '';
+
+            // Validation Checks
+            let errors = [];
+
+            if (!fullName) errors.push('Full Name is required.');
+            if (isNaN(age) || age < 10 || age > 25) errors.push('Age must be strictly between 10 and 25 years.');
+            if (!phone || phone.length < 8) errors.push('Please enter a valid phone number.');
+            if (!email || !email.includes('@')) errors.push('Please enter a valid email address.');
+            if (!city) errors.push('City is required.');
+            if (!category) errors.push('Please select a Performance Category.');
+            if (!actName) errors.push('Performance Title / Act Name is required.');
+            if (!desc) errors.push('Short Description is required.');
+            if (!terms) errors.push('You must agree to the event rules.');
+
+            if (errors.length > 0) {
+                errorContainer.innerHTML = errors.join('<br>');
+                errorContainer.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate Loading State
+            const submitBtn = document.getElementById('reg-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Submitting Registration...';
+
+            setTimeout(() => {
+                document.getElementById('registration-form').classList.add('hidden');
+                document.getElementById('form-success-state').classList.remove('hidden');
+            }, 1200);
+        }
+
+        function resetRegForm() {
+            document.getElementById('registration-form').reset();
+            document.getElementById('registration-form').classList.remove('hidden');
+            document.getElementById('form-success-state').classList.add('hidden');
+            const submitBtn = document.getElementById('reg-submit-btn');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'TAKE THE STAGE';
+        }
+
+        // 4. Contact Form Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Thank you for reaching out! We'll get back to you soon.");
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
